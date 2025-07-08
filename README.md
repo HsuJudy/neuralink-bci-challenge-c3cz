@@ -33,3 +33,5 @@ scipy
 matplotlib
 scikit-learn
 mne
+
+https://colab.research.google.com/drive/1qgHou6zhGA7ra0k88euXy4DnvKbyn-bb?usp=share_link
