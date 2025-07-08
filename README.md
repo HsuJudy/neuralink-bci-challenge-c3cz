@@ -1,43 +1,35 @@
-BCI Motor Imagery Classifier
+# EEG Motor Imagery Classification – BCI Competition III, Dataset IVa
 
-This project explores Brain-Computer Interface (BCI) signal classification using real EEG data from the BCI Competition III, Dataset IVa. The goal is to distinguish between right-hand and right-foot motor imagery based on EEG band power features.
+This project explores motor imagery classification using EEG data from the [BCI Competition III Dataset IVa](https://www.bbci.de/competition/iii/desc_IVa.html). The goal is to distinguish between imagined right hand and right foot movements using brainwave signals.
 
-Dataset Overview
-	•	Source: BCI Competition III, Dataset IVa
-	•	Subjects: 5 healthy individuals
-	•	Channels: 118 EEG channels
-	•	Classes: Right hand (1), Right foot (2)
-	•	Data Format: .mat (MATLAB), includes EEG signal (cnt) and event markers (mrk)
+## 🧠 Overview
 
-Methodology
-	1.	Data Loading: MATLAB .mat files parsed using scipy.io.
-	2.	Preprocessing: Extracted relevant channels (C3, Cz), scaled signals.
-	3.	Feature Extraction: Computed band power (alpha, beta) for C3 and Cz.
-	4.	Classification: Trained a Random Forest Classifier.
-	5.	Evaluation: Accuracy, precision, recall, F1-score, and feature importance analyzed.
+Using EEG signals recorded from five subjects, we:
+- Visualized and explored data from motor cortex channels (C3 and Cz)
+- Extracted alpha band power features
+- Built a simple Random Forest classifier
+- Achieved baseline accuracy and identified next steps for improving performance
 
-Key Findings
-	•	Accuracy: ~56%
-	•	Most Important Features: C3 Alpha and Cz Alpha band powers
-	•	Insight: C3 and Cz are useful but not sufficient alone; further features or channels may improve performance.
+## 📊 Key Findings
 
-Future Work
-	•	Include additional motor-related channels (e.g., C1, C4, FCz)
-	•	Apply spatial filtering (e.g., CSP)
-	•	Explore deep learning models (e.g., CNN, LSTM)
-	•	Evaluate across multiple subjects
+- **Accuracy**: 56% on test data using only C3 and Cz band power
+- **Top Features**: Alpha band power from C3 and Cz channels
+- **Insight**: Using only two channels is limited. Future work should explore more features and channels.
 
-Repository Structure
-├── data/               # Contains downloaded .mat EEG datasets
-├── BCI_EEG_Motor_Imagery_Classification.ipynb      # Full preprocessing, feature extraction, training pipeline
-├── README.md           # Project documentation (this file)
-└── requirements.txt    # Python dependencies
+## 🗂️ Dataset
 
-Credits
-	•	Dataset: BCI Competition III IVa (TU Berlin, Fraunhofer FIRST)
-	•	Author: Judy Hsu
-	•	Tools: Python, Scikit-learn, MNE, SciPy, Matplotlib
+- Source: [BCI Competition III - Dataset IVa](https://www.bbci.de/competition/iii/)
+- Subjects: 5
+- Channels: 118 EEG channels (downsampled to 100Hz)
+- Classes: 
+  - 1 = Right Hand
+  - 2 = Right Foot
 
-Why This Matters
+## 🛠️ Dependencies
 
-This project demonstrates the foundational steps in building a non-invasive BCI pipeline, paving the way toward brain-controlled interfaces, assistive technology, and future human-AI interaction.
+```txt
+numpy
+scipy
+matplotlib
+scikit-learn
+mne
